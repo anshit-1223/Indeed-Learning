@@ -1,0 +1,41 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Batches
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+   Software <b class="txt-mycolor">Kit</b>
+</div>
+<div class="row">
+   <div class="col-sm-8 mx-auto">
+      <!-- Card Start -->
+     {% for x in sdata %}
+     <div class="card mb-3 ">
+      <div class="row g-0">
+        <div class="col-md-2">
+          <img src="/{{x.software_picture}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            <h5 class="card-title"><b></b></h5>
+            <p class="card-text">{{x.software_description}}</p>
+            <a href="{{x.software_url}}" target="_blank" class="btn btn-success btn-sm rounded-pill">Download <i class="fa-solid fa-download"></i></a>
+            <p class="card-text"><small class="text-body-secondary"><i class="fa-solid fa-calendar-days"></i> Added on : {{x.software_date}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+      <!-- Card End -->
+   </div>
+</div>
+{% endblock %}

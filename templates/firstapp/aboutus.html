@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+About Us
+{% endblock %}
+{% block childpage %}
+<div class="text-center fs-2">About <b class="txt-mycolor">Us</b></div>
+<div class="row">
+    <div class="col-lg-8 mx-auto my-4" style="background: #deedec;">
+        <div class="row m-4">
+            <div class="col-lg-8 col-md-6 col-sm-12 py-2 text-dark" style="text-align: justify; font-size:20px;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <!-- CARD START -->
+                <div class="card text-center">
+                    <img src="{% static 'images/myimage.jeg' %}" height="400px" class="img-top-build" alt="">
+                    <div class="card-body">
+                        <div class="card-title fs-4"><b>Anshit Verma</b></div>
+                        <!-- <div class="card-text" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Founder of Indeed Learning</div> -->
+                    </div>
+                </div>
+                <!-- CARD END -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

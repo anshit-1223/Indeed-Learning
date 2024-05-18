@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+Feedback
+{% endblock %}
+{% block childpage %}
+
+
+<div class="text-center fs-2 txt-mycolor"><b>Feedback</b></div>
+<div class="row mt-2">
+    <div class="col-lg-8 mx-auto rounded-3 p-3" style="background:#deedec;">
+        <div class="row ">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <img src="{% static 'images/feedback.webp'%}" alt="" class="border-3 rounded-3" style="max-height:400px;" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <b>Add Your Feedback</b>
+                <form action="" method="post">
+                    <input type="text" name="name" placeholder="Your Name" class="form-control mt-3"/>
+                    <input type="file" name="name" class="form-control mt-3"/>
+                    <input type="text" name="name" placeholder="College Name" class="form-control mt-3"/>
+                    <textarea rows="5" class="form-control mt-3"></textarea>
+                    <input type="submit" name="name" class="form-control mt-3 bg-mycolor" value="SEND FEEDBACK"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

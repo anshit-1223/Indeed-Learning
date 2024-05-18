@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Video Lectures
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+    Video <b class="txt-mycolor">Lectures</b>
+</div>
+<div class="row">
+    <div class="col-sm-8 mx-auto">
+        <!-- CARD START -->
+        {% for i in lvdata %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <iframe style="min-height: 220px; " class="img-fluid rounded-start" target="_blank" src="{{i.vlink}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p class="card-text">{{i.video_description}}</p>
+                  <p class="card-text"><small class="text-body-secondary">Added Date:{{i.added_date}}</small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <!-- CARD END -->
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Tasks
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+    New <b class="txt-mycolor">Tasks</b>
+</div>
+<div class="row">
+    <div class="col-sm-6 mx-auto my-3 pt-3" style="background: #deedec; border-radius: 5px; border: 2px solid gray;">
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Download</th>
+                <th>Submit Task</th>
+            </tr>
+            {% for x in tdata %}
+            <tr>
+                <td>{{x.title}}</td>
+                <td><a href="/{{x.task_file}}" class="btn btn-sm btn-success">Download <i class="fa-solid fa-download"></i></a></td>
+                <td>
+                    <form action="/sapp/stask/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="tid" value="{{x.id}}">
+                        <input type="hidden" name="title" value="{{x.title}}">
+
+                        <input type="file" value="1" name="fu" />
+                        <input type="submit" value="Upload" class="btn btn-success btn-sm"/>
+
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 mx-auto my-3 pt-3" style="background: #deedec; border-radius: 5px; border: 2px solid gray;">
+        <table class="table table-hover">
+            <tr>
+                <th>Title</th>
+                <th>Marks</th>
+            </tr>
+            {% for i in mdata %}
+                    <td>{{i.title}}</td>
+                    <td>{{i.marks}}</td>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/all.css'%}" />
+    <style>
+        :root {
+            --bgcolor: linear-gradient(50deg, #33b5e5, #ffbb33);
+            /* --bgcolor: linear-gradient(50deg,#d4cae6,#d89197);  */
+            --txtcolor: #ffa726;
+        }
+
+        .bg-mycolor {
+            background: var(--bgcolor) !important;
+        }
+
+        .txt-mycolor {
+            color: var(--txtcolor) !important;
+        }
+
+        .footer1 {
+            min-height: 300px;
+
+        }
+
+        .footer2 {
+            min-height: 30px;
+            margin-top: .1%;
+        }
+
+        .rotat:hover {
+            color: black;
+            transition: all 1s;
+            font-size: 30px;
+            ;
+
+        }
+
+        .txtsize {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row t1 bg-mycolor text-center border">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <i class="fa-solid fa-envelope"></i>
+                indeedlearning@ilearn.in
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <i class="fa-solid fa-phone"></i>
+                +91,9876543210
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                Welcome to INDEED LEARNING
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <i class="fa-brands fa-facebook fa-spin rotat"></i>
+                <i class="fa-brands fa-youtube rotat"></i>
+                <i class="fa-brands fa-twitter rotat"></i>
+                <i class="fa-brands fa-instagram rotat"></i>
+                <i class="fa-brands fa-whatsapp fa-spin rotat"></i>
+            </div>
+        </div>
+        <div class="row t2">
+            <div class="col-sm-10 mx-auto">
+                <div class="row">
+                    <div class="col-sm-4" style="font-family:ALgerian; font-size: 30px;">
+                        <a href="/fapp/index/" class="text-dark" style="text-decoration: none;">INDEED <b
+                                class="txt-mycolor pe-1">LEARNING </b><i class="fa-solid fa-book txt-mycolor"></i></a>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4 text-end">
+                        <a href="/fapp/contact/" class="btn btn-sm  bg-secondary mt-2 rounded-pill text-light"><i
+                                class="fa-solid fa-address-book"></i> &nbsp;Enquiry</a>
+                        <a href="/fapp/feedback/" class="btn btn-sm  bg-secondary mt-2 rounded-pill text-light"><i
+                                class="fa-solid fa-rss"></i>&nbsp;Feedback</a>
+                        <a href="/fapp/login/" class="btn btn-sm  bg-secondary mt-2 rounded-pill text-light"><i
+                                class="fa-solid fa-user"> </i>&nbsp;Student Login</a>
+                        <a href="/fapp/flogin/" class="btn btn-sm  bg-secondary mt-2 rounded-pill text-light"><i
+                                class="fa-solid fa-user"></i>&nbsp;Faculty Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row t3 bg-mycolor">
+            <div class="col-sm-10 mx-auto" style="padding-left: 20%;">
+                <!-- Start MENU -->
+                <nav class="navbar navbar-expand-lg ">
+                    <div class="container-fluid ">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="/fapp/index/"><i
+                                            class="fa-solid fa-house"></i> HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/fapp/about/"><i class="fa-solid fa-info"></i> ABOUT
+                                        US</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/fapp/newbatches/"><i class="fa-solid fa-table"></i> NEW
+                                        BATCHES</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/fapp/registration/"><i class="fa-solid fa-user-plus"></i>
+                                        REGISTRATION</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/fapp/facility/"><i
+                                            class="fa-solid fa-person-chalkboard"></i> OUR FACILITY</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/fapp/placements/"><i
+                                            class="fa-solid fa-user-graduate"></i> OUR PLACEMENT</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" style="min-height: 500px;">
+                {% block childpage %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="row footer1 bg-dark">
+            <div class="col-lg-6 mx-auto">
+                <div class="row m-3">
+                    <div class="col-lg-6 col-md-6 col-sm-12" style="color: antiquewhite;">
+                        <b class="fs-4">Contact Address</b><br />
+                        <b class="txt-mycolor"><i class="fa-solid fa-location-dot"></i> Office Address </b>
+                        <address class="txtsize">Plot No-444, Behind HP Petrol Pump,<br />Vikas Nagar, Lucknow, Uttar
+                            Pradesh 226022</address>
+                        <b class="txt-mycolor"><i class="fa-solid fa-phone"></i> Call Us</b>
+                        <p class="txtsize">+91 1234567890 <br />+91 1234567890</p>
+                        <b class="txt-mycolor"><i class="fa-solid fa-envelope"></i> Mail Us</b>
+                        <p class="txtsize">indeedlearning@ilearn.com <br />hr@ilearn.com</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 text-light pt-2">
+                        INDEED <b class="txt-mycolor pe-1">LEARNING</b><i class="fa-solid fa-book txt-mycolor"></i>
+                        <p>Indeed Learning is democratising education,<br /> making it accessible to all. Join the
+                            revolution,<br />learn on India's largest learning platform. </p>
+                        <p><b style="border-bottom: 2px solid white; font-weight:500;">Stay Connected</b></p>
+                        <i class="fa-brands fa-facebook rotat fs-3"></i>&nbsp;
+                        <i class="fa-brands fa-youtube rotat fs-3"></i>&nbsp;
+                        <i class="fa-brands fa-twitter rotat fs-3"></i>&nbsp;
+                        <i class="fa-brands fa-instagram rotat fs-3"></i>&nbsp;
+                        <i class="fa-brands fa-whatsapp rotat fs-3"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row footer2 bg-dark">
+            <p class="text-light">&copy; 2023 |<b class="txt-mycolor"> Indeed Learning </b> 2023 | Developed By <b
+                    class="txt-mycolor"> Technical Team</b></p>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+</body>
+
+</html>

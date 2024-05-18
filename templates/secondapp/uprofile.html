@@ -1,0 +1,81 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Profile
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<style>
+    #frm{
+        display: none;
+    }
+</style>
+<script>
+    function demo(){
+        var x=document.getElementById('frm')
+        x.style.display="block";
+    }
+</script>
+<div class="text-center fs-2">
+    Your <b class="txt-mycolor">Profile</b>
+</div>
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <!-- CARD START -->
+        {% for i in udata %}
+        <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/{{i.profile}}" class="img-fluid rounded-start" alt="...">
+              </div>    
+              <div class="col-md-8">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Name</h5> -->
+                  <p class="card-text fs-5">
+                      <i class="fa-solid fa-user my-2"></i> {{i.name}}<br/>
+                      <i class="fa-solid fa-phone my-2"></i> {{i.mobile}}<br/>
+                      <i class="fa-solid fa-pen my-2"></i> {{i.batch}}<br/>
+                      <i class="fa-solid fa-city my-2"></i> {{i.college}}<br/>
+                      <i class="fa-solid fa-lock my-2"></i> {{i.passwd}}<br/>
+                      <a href="#" class="btn  btn-dark text-light my-2" onclick="demo()">
+                        Edit Profile <i class="fa-solid fa-pen-to-square btn-sm"></i>
+                      </a>
+
+                </p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <!-- CARD END -->
+    </div>
+    <div class="row" id="frm">
+        <div class="col-sm-6 mx-auto" style="background: #deedec; border-radius: 5px; max-height: 1000px; margin: 15px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                Name: <input type="text" name="name" class="form-control " required />
+                Password: <input type="password" name="passwd" class="form-control" required />
+                Mobile(Whatsapp No): <input type="number" name="mobile" class="form-control" required />
+                Profile Picture: <input type="file" name="fu" class="form-control" required />
+                Course: <input type="text" name="course" class="form-control" required />
+                <select class="form-control my-4" name="pyear">
+                    <option>--Select Pursuing Year--</option>
+                    <option> I Year</option>
+                    <option> II Year</option>
+                    <option> III Year</option>
+                </select>
+                College: <input type="text" name="college" class="form-control" required />
+                <input type="submit" value="Update" class="btn form-control my-4  bg-mycolor" required />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

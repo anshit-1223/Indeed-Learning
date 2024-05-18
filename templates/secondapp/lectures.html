@@ -1,0 +1,36 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Video Lectures
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+    Video <b class="txt-mycolor">Lectures</b>
+</div>
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <!-- Start Video Category -->
+            {% for i in cdata %}
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3">
+                <div class="card">
+                    <img src="/{{i.category_picture}}" alt="" class="card-img-top"/>
+                    <div class="card-body text-center">
+                        <a href="/sapp/lecturesvideo?cid={{i.id}}" style="text-decoration: none; color: black;"><h4>{{i.category_name}}</h4></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- End Video Category -->
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+STUDENT ZONE
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<style>
+    .dash{
+        min-height: 180px;
+        background: #deedec;
+        text-align: center;
+        font-size: 30px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 40px #979797;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<div class="text text-center my-2 fs-2"><i class="fa-solid fa-list"></i> DASHBOARD</div>
+<div class="row">
+    <div class="col-sm-10 my-5 mx-auto">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/lectures/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-video"></i><br/>
+                        Lectures
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/note/">
+                    <p class="dash pt-5">
+                        <i class="fa-regular fa-file-lines"></i><br/>
+                        E Notes
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/tasks/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-list-check"></i><br/>
+                        Task
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/batches/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-table"></i><br/>
+                        Upcoming Batches
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/liveclasses/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-tv"></i><br/>
+                        Live Classes | Timing
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/uprofile/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-user"></i><br/>
+                        Update Profile
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/softwarekit/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-code"></i><br/>
+                        Software Kit
+                    </p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-2">
+                <a href="/sapp/logout/">
+                    <p class="dash pt-5">
+                        <i class="fa-solid fa-power-off"></i><br/>
+                         Log Out
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

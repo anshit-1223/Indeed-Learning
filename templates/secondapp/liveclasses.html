@@ -1,0 +1,27 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!-- TITLE START-->
+{% block title %}
+Live Classes
+{% endblock %}
+<!-- TITLE END -->
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+    alert("Login First!!!")
+    location.href="/fapp/index"
+</script>
+{% endif %}
+<div class="text-center fs-2">
+    Live <b class="txt-mycolor">Classes</b>
+</div>
+<div class="row">
+    {% for i in data %}
+    <div class="col-sm-4 mx-auto p-5" style="background: #deedec; border-radius: 5px; border: 2px solid gray;">
+        <b>Your Batch : </b>{{i.batch}} <br/>
+        <b>Time : </b> {{i.timing}} <br/><br/>
+        <a href="{{i.clink}}" target="_blank" class="btn btn-sm btn-primary rounded-pill">Join Class <i class="fa-solid fa-video"></i></a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

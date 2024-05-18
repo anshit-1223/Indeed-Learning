@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+Login
+{% endblock %}
+{% block childpage %}
+
+
+<div class="text-center fs-2">Student <b class="txt-mycolor">LogIn</b></div>
+<div class="row mt-2">
+    <div class="col-lg-3 mx-auto rounded-3 p-3"
+        style="min-height:400px; background:#deedec; border:2px solid #99d1ff ;">
+        <p class="text-center fs-2">Welcome To Indeed Learning</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="email" name="email" class="form-control rounded-pill border-secondary" placeholder="Username"
+                required /><br />
+            <input type="password" name="passwd" class="form-control rounded-pill border-secondary"
+                placeholder="Password" required /><br />
+            <input type="submit" value="LOGIN" class="form-control rounded-pill bg-mycolor" />
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <title>{% block title %}
+        {% endblock %}
+    </title>
+    <style>
+        :root {
+            --bgcolor: linear-gradient(50deg, #33b5e5, #ffbb33);
+            /* --bgcolor: linear-gradient(50deg,#d4cae6,#d89197);  */
+            --txtcolor: #ffa726;
+        }
+
+        .bg-mycolor {
+            background: var(--bgcolor) !important;
+        }
+
+        .txt-mycolor {
+            color: var(--txtcolor) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row menu bg-dark">
+            <div class="col-sm-12">
+                <!-- MENU START -->
+                <nav class="navbar navbar-dark bg-dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="/sapp/index/">INDEED <b class="txt-mycolor pe-1">LEARNING </b><i
+                                class="fa-solid fa-book txt-mycolor"></i></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+                            aria-labelledby="offcanvasDarkNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+                                    {% if request.session.user %}
+                                    <img src="/{{ request.session.userpict }}" class="rounded-pill" height="30px" />
+                                    {{ request.session.username }}
+                                    <p style="font-size: 15px; padding-top: 10px;">
+                                        {{ request.session.user }}
+                                    </p>
+                                    {% endif %}
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item">
+                                        <a href="/sapp/index/" class="nav-link"><i class="fa-solid fa-list"></i>
+                                            Dashboard</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/lectures/" class="nav-link"><i class="fa-solid fa-video"></i>
+                                            Video Lectures</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/note" class="nav-link"><i class="fa-regular fa-file-lines"></i> E
+                                            Notes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/tasks" class="nav-link"><i class="fa-solid fa-list-check"></i>
+                                            Task</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/batches/" class="nav-link"><i class="fa-solid fa-table"></i>
+                                            Upcoming Batches</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/liveclasses/" class="nav-link"><i class="fa-solid fa-tv"></i>
+                                            Live Classes | Timing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/uprofile/" class="nav-link"> <i class="fa-solid fa-user"></i>
+                                            Update Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sapp/softwarekit/" class="nav-link"><i class="fa-solid fa-code"></i>
+                                            Software Kit</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                <a href="/sapp/" class="nav-link"><i class="fa-solid fa-key"></i> Change Password</a>
+                            </li> -->
+                                    <li class="nav-item">
+                                        <a href="/sapp/logout/" class="nav-link"><i class="fa-solid fa-power-off"></i>
+                                            Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- MENU END -->
+            </div>
+        </div>
+        <div class="row t1 bg-mycolor">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-center mx-auto">WELCOME TO STUDENT ZONE</div>
+            <div class="col-sm-4"></div>
+        </div>
+        <!-- <h1>STUDENT ZONE HEADER</h1>   -->
+        <div class="row">
+            <div class="col-sm-12" style="min-height: 815px; background: #f6f6f6;">
+                {% block studentzone %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="row footer bg-dark text-light py-2 text-center">
+            <div class="col-sm-6">
+                &copy; Indeed Learning Pvt. Ltd.
+            </div>
+            <div class="col-sm-6">
+                Developed By : Technical Team
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+
+</html>

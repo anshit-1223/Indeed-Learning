@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+OUR PLACEMENT
+{% endblock %}
+{% block childpage %}
+<div class="text-center fs-2 ">OUR<b class="txt-mycolor"> PLACEMENT</b></div>
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <form method="get">
+        <div class="row">
+            <div class="col-sm-5">
+                <select name="college" class="form-control border border-info">
+                    <option value="">--Select College--</option>
+                    {% for i in cdata %}
+                    <option value="{{i.id}}">{{i.college_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-5">
+                <select name="year" class="form-control border border-warning">
+                    <option value="">--Select Session--</option>
+                    {% for i in sdata %}
+                    <option value="{{i.id}}">{{i.session}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <input type="submit" value="Search" class="btn bg-mycolor form-control"/>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+             <div class="col-sm-10 mx-auto">
+                <div class="row py-3 rounded-3" style="background-color:#deedec;">
+                    <!-- CARD START -->
+                    {% for a in pdata %}
+                    <div class="col-lg-2 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="/{{a.student_picture}}" alt="" class="card-img-top" style="max-height:200px;">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>{{a.student_name}}</b><br/>
+                                    <small>{{a.batch}} ({{a.session}})</small> <br/>
+                                    {{a.company_name}} <img src="/{{a.company_logo}}" alt="" class="img-thumbnail" style="max-height: 10px;" /><br/>
+                                    {{a.college}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- CARD END -->
+                </div>
+             </div>   
+        </div>
+    </div>
+</div>
+{% endblock %}

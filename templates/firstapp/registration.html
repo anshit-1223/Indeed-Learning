@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+Sign Up
+{% endblock %}
+{% block childpage %}
+
+
+<div class="text-center fs-2"><b>Registration</b></div>
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class=" col-lg-5 col-sm-4 mx-auto m-3 pt-3 rounded-3" style="background-color:#deedec; ">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    Name: <input type="text" name="name" class="form-control" required />
+                    Email: <input type="email" name="email" class="form-control" required
+                        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}" />
+                    Password: <input type="password" name="passwd" class="form-control" required />
+                    Mobile(Whatsapp No): <input type="tel" name="mobile" class="form-control" pattern="[0-9]{10,12}"
+                        required />
+                    Batch:
+                    <select name="batch" class="form-control mb-3">
+                        <option value="">--Select Your Batch--</option>
+                        {% for i in bdata %}
+                        <option value="{{i.id}}">{{i.batch_name}}</option>
+                        {% endfor %}
+                    </select>
+                    Profile Picture: <input type="file" name="fu" class="form-control" required />
+                    Course: <input type="text" name="course" class="form-control" required />
+                    <select class="form-control my-4" name="pyear">
+                        <option>--Select Pursuing Year--</option>
+                        <option> I Year</option>
+                        <option> II Year</option>
+                        <option> III Year</option>
+                    </select>
+                    College: <input type="text" name="college" class="form-control" required />
+                    <input type="submit" value="Register" class="btn form-control my-4 bg-mycolor" required />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

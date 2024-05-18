@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title%}
+Our Facility
+{% endblock %}
+{% block childpage %}
+<div class="text-center fs-2">Our<b class="txt-mycolor"> Facility</b></div>
+<div class="row my-3">
+    <div class="col-lg-8 mx-auto pt-3" style="border: 2px solid gray; border-radius: 5px;">
+        <div class="row " >
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <img src="{% static 'images/online.jpg' %}" height="400px" alt="">
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-6 text-center py-5">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <i class="fa-solid fa-tv fs-2 txt-mycolor"></i><br>
+                        <p class="fs-5">Join Live Classes</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <i class="fa-solid fa-list-check fs-2 txt-mycolor"></i><br>
+                        <p class="fs-5">Timely Assignment</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <i class="fa-solid fa-code fs-2 txt-mycolor"></i><br>
+                        <p class="fs-5">Software Kit Available</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <i class="fa-solid fa-video fs-2 txt-mycolor"></i><br>
+                        <p class="fs-5">Video Lectures Available.</p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
